@@ -1,0 +1,21 @@
+﻿@model System.Collections.Generic.IEnumerable<DomainModel.Measurement>
+
+@{
+	ViewBag.Title = "Measurements";
+}
+
+<h2>Measurement</h2>
+<ul class="list-group">
+	<li class="list-group-item-heading">
+		<span class="text-center">Date</span>
+		<span class="text-center">Value</span>
+	</li>
+	@foreach (var measure in Model)
+	{
+		<li class="list-group-item">
+			<span>@measure.Date</span>
+			<span>@measure.Value</span>
+			@*@HtmlHelper.GenerateLink(ViewContext.RequestContext, null, "Edit", null, "Edit", "Measurement",  new RouteValueDictionary(measure.Id), new Dictionary<string, object>{["class"]="btn-link"})*@
+		</li>
+	}
+</ul>
